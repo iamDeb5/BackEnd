@@ -5,7 +5,7 @@ const App = () => {
     const [notes, setNotes] = useState([]);
 
     const fetchNotes = () => {
-        axios.get("http://localhost:3000/api/notes").then((res) => {
+        axios.get("https://backend-hgwg.onrender.com/api/notes").then((res) => {
             setNotes(res.data.notes);
         });
     };
@@ -20,7 +20,7 @@ const App = () => {
         const { title, description } = e.target.elements;
 
         axios
-            .post("http://localhost:3000/api/notes", {
+            .post("https://backend-hgwg.onrender.com/api/notes", {
                 title: title.value,
                 description: description.value,
             })
@@ -32,7 +32,7 @@ const App = () => {
 
     const handleDeleteNote = (noteId) => {
         axios
-            .delete("http://localhost:3000/api/notes/" + noteId)
+            .delete("https://backend-hgwg.onrender.com/api/notes/" + noteId)
             .then((res) => {
                 fetchNotes();
             });
